@@ -27,8 +27,8 @@ paste this token into the field on the homepage, <b> open developer tools </b> a
 <b>generating more playlists:</b>
 <br><br>
 once you have generated your first playlist, files will have been created with the tracks in your library, which the neural network has processed. <br>thus, for any further playlists you wish to make, <b>quit the server running on backend.py, and run d.py instead</b>. <br>this ensures that for every new playlist you wish to generate by clicking the canvas, the model isn't being retrained and the files aren't being regenerated from scratch. <br>the initial process of this happening can feel quite time-consuming, so once backend.py has been run once on your data there is no need to rerun it in order to make more playlists.
-<br><br><br>
-<b>happy playlisting!</b>
+<br><br><br><br>
+<b>happy playlisting! :)</b>
 
 
 
