@@ -1,6 +1,6 @@
 # emotify-spotify-app
 
-to run:
+<b>to run:</b>
 <br><br>
 first <b>install dependencies</b> in backend.py and d.py 
 <br><br>
@@ -23,5 +23,11 @@ if pip3 doesn't work.
 then run backend.py first, and go to the link the Flask server is hosted on. you will need to log into  <a href='https://open.spotify.com/'>spotify web player</a> , and open chrome developer tools (F12 on <b>windows </b>, cmd + option + I on <b>macos</b>.) <br>find a tab that says 'network', and under it will be a burst of requests that happens on your logging in. <br>once this subsides, open a request with name 'events', and scroll until you see 'Authorisation'.<br> <b> copy the chunk of text after 'Bearer', this is your access token. </b>
 <br><br>
 paste this token into the field on the homepage, <b> open developer tools </b> and click a point on the plane.<br> if you have the python file open alongside your browser, you can see the request being passed and the neural network being trained.<br> once this is done, a string of letters and numbers will appear as a request in developer tools. click on it, and scroll to where it says 'Request URL'. <br> <b>this is the link to your generated playlist</b>. <br> copy-paste into a new tab and enjoy!
+<br><br><br>
+<b>generating more playlists:</b>
+<br><br>
+once you have generated your first playlist, files will have been created with the tracks in your library, which the neural network has processed. <br>thus, for any further playlists you wish to make, <b>quit the server running on backend.py, and run d.py instead</b>. <br>this ensures that for every new playlist you wish to generate by clicking the canvas, the model isn't being retrained and the files aren't being regenerated from scratch. <br>the initial process of this happening can feel quite time-consuming, so once backend.py has been run once on your data there is no need to rerun it in order to make more playlists.
+
+
 
 
