@@ -24,7 +24,7 @@ def home():
 def get_spotify_client():
     return spotipy.Spotify(auth=spotify_access_token)
 
-def range(col):
+def col_range(col):
  return col.max()-col.min()
 
 @app.route('/generate_playlist', methods=['POST'])
@@ -37,8 +37,8 @@ def generate_playlist():
 
     data = request.get_json()
     df= pd.read_csv('predicted_valence_arousal.csv')
-    valence = data.get('valence')*(range(df['predicted_valence'])) + df['predicted_valence'].min()
-    arousal = data.get('arousal')*(range(df['predicted_arousal'])) + df['predicted_arousal'].min()
+    valence = data.get('valence')*(col_range(df['predicted_valence'])) + df['predicted_valence'].min()
+    arousal = data.get('arousal')*(col_range(df['predicted_arousal'])) + df['predicted_arousal'].min()
 
     
     tree = KDTree(df[['predicted_valence', 'predicted_arousal']])
@@ -59,8 +59,12 @@ def generate_playlist():
     global playlist_url
     playlist_url = ext_url['spotify']
 
-    return redirect(playlist_url)
+    return jsonify(success=True)
 
+
+@app.route('/redirect')
+def redirect_page():
+    return render_template('redirect.html', playlist_url=playlist_url)
 
 
 if __name__ == '__main__':

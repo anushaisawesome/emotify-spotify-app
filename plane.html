@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Mood Playlist</title>
+</head>
+<body>
+    <style>
+        body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: left;
+        background-color: #fffdf6;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        }
+    </style>
+    <canvas id="moodCanvas" width="600" height="600" style="border:1px solid black; align-self: center; background-image: 'IMG_0163.jpg' ;"></canvas>
+    <script>
+        var c = document.getElementById("moodCanvas");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(300,0);
+        ctx.lineTo(300,600);
+        ctx.stroke();
+        ctx.moveTo(0,300);
+        ctx.lineTo(600,300);
+        ctx.stroke();
+        ctx.font = "15px Helvetica";
+        ctx.fillText("Valence",530,330);
+        ctx.fillText("Arousal",230,30);
+       
+        document.getElementById('moodCanvas').addEventListener('click', async function(event) {
+            let canvas = event.target;
+            let rect = canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+            ctx.font = '25px Helvetica';
+            ctx.fillStyle = 'red';
+            ctx.fillText("x",x,y);
+
+        
+            let valence = x / canvas.width; 
+            let arousal = 1 - (y / canvas.height); 
+
+            
+            fetch('/generate_playlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ valence: valence, arousal: arousal })
+            }).then(() => {
+                window.location.href = '/redirect';
+            });
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotify</title>
+</head>
+<body>
+    <style>
+        body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-align: left;
+        background-color: #fffdf6;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        }
+    </style>
+    <h1 style="font-weight:600; line-height:0.7em">Emotify <span style='font-weight:400 ;float: right; font-size:x-large; position:absolute; right:6.25rem'>made for </span><img src="/static/IMG_0128.PNG" style="height:40px; width:40px; position: absolute; top:2.5rem; right:3rem;"></h1>
+    <h2 style="font-weight:400; line-height:0em; padding-bottom: 2rem; color: #5c5c5c;">your music, exactly how you want it.</h2>
+    <img src="/static/IMG_0130.jpg" style="height:450px; position:absolute; top:7rem; right:6rem;">
+    <img src="/static/IMG_0134.jpg" style="height:450px; position:absolute; top: 38rem; right:6.3rem; padding-bottom: 3rem;">
+    
+    <p style="font-size: larger; margin-right: 50%"> 
+        Generate more personalised Spotify playlists by selecting your desired music mood on a 2D emotional plane. 
+        <br> <br> 
+    </p>
+   
+    <div style="padding:0.5rem; border: 1px solid black; background-color: #e4dbf4; margin-right:80%;">
+        <form action="{{url_for('fetch_token')}}" method="POST">
+            <label style= 'font-size:large;' for="access_token">Enter Spotify Access token here:</label><br>
+            <input type="text" name="access_token">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <p style="font-size:larger; margin-right: 50%;">
+        <br><br>
+        <b>What do the axes labels mean?</b><br><br>
+        <b><u>Valence</u></b>:  A measure of an emotion's positive/negative polarity.<br>In other words, a scale of the pleasant/unpleasantness of an emotion. It can be thought of as the felt difference between, say,  <i>happiness/contentment</i>, and  <i>unhappiness/sorrow</i>. <br><br>Emotions with <b>lower</b> valence values are perceived to be adjacent to <i>sadness, anger, gloominess, anxiety, melancholia and depression</i>, whereas emotions with <b>higher</b> valence values are perceived to be adjacent to <i>happiness, relaxation, elation, excitement, contentment and calmness</i>. 
+        <br><br><br>
+        <b><u>Arousal</u></b>: A measure of an emotion's energy, or lack thereof. <br>It can be thought of as the felt difference between, say, <i>sadness/unhappiness</i>, and <i>anger/rage</i>. Though both feelings are considered two sides of the same emotional coin, the perceived difference between them is thought to be related to their difference in  energy, or <i>arousal</i>. <br><br>Emotions with <b>lower</b> arousal values are perceived to be adjacent to <i>relaxation, calmness, sleepiness, lethargy, gloominess and sorrow</i>, whereas emotions with <b>higher</b> arousal values are perceived to be adjacent to <i>excitement, elation, alertness, tension, nervousness, anger and rage</i>.
+        <br><br><br>
+        <b>How do I use this tool?</b>
+        <br><br>
+        Open <a href="https://open.spotify.com/">Spotify Web Player</a>, login with your details and open <i>Chrome Developer Tools</i>. You can do this by pressing <b>F12 on Windows</b>, or by pressing <b>cmd + option + I on MacOS</b>.  Find a tab that says  '<b>Network</b>' , and under it will be a burst of requests that happens on your logging in. Once this subsides, open a request with name  '<i>events</i>' , and scroll until you see '<i>Authorisation</i>' .<br> <b><u> Copy the chunk of text after 'Bearer', this is your access token. </u></b><br><br>Paste into the field at the top of this page, press submit and it should take you to another webpage with a Valence-Arousal plane like the ones seen on the right of this page. Think about the sort of mood you want for your playlist, and click a point on the plane you feel corresponds to it.<br><br>A playlist will then be generated with the 10 emotionally closest songs in your Spotify listening history to the point you chose. Once your playlist has been generated, you should be redirected its Spotify page, where you can decide what to do with it.<br><br><b>Happy playlisting! :)</b>
+    </p>
+
+</body>
+</html>

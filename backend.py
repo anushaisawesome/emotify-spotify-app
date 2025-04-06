@@ -205,8 +205,12 @@ def generate_playlist():
     global playlist_url
     playlist_url = ext_url['spotify']
 
-    return redirect(playlist_url)
+    return jsonify(success=True)
 
+
+@app.route('/redirect')
+def redirect_page():
+    return render_template('redirect.html', playlist_url=playlist_url)
 
 
 if __name__ == '__main__':
