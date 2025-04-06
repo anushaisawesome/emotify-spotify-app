@@ -2,7 +2,7 @@
 
 <b>to run:</b>
 <br><br>
-first <b>install dependencies</b> in backend.py and d.py 
+first <b>install python dependencies</b> 
 <br><br>
 do this by running this in a new terminal for <b> windows </b>:
 ```
