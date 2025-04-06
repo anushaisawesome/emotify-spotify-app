@@ -6,7 +6,7 @@ first <b>install python dependencies</b>
 <br><br>
 do this by running this in a new terminal for <b> windows </b>:
 ```
-pip install flask pandas numpy tf spotipy keras sklearn requests scipy
+pip install flask pandas numpy tensorflow spotipy keras sklearn requests scipy
 ```
 <br>
 
