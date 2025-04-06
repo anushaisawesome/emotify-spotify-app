@@ -34,7 +34,7 @@
         ctx.fillText("Valence",530,330);
         ctx.fillText("Arousal",230,30);
        
-        document.getElementById('moodCanvas').addEventListener('click', async function(event) {
+        document.getElementById('moodCanvas').addEventListener('click', function(event) {
             let canvas = event.target;
             let rect = canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
