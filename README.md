@@ -1,5 +1,5 @@
 # emotify-spotify-app
-
+<i>note: this repository is archived as of 3.11.25 .</i> <br><br>
 <b>to run:</b>
 <br><br>
 first <b>install python dependencies</b> 
