@@ -1,3 +1,4 @@
+import os
 from IPython.display import Audio
 import pandas as pd
 import numpy as np
@@ -9,7 +10,7 @@ from spotipy.oauth2 import SpotifyOAuth
 from spotipy import client
 import time
 
-spotify_access_token ='BQCxTajCoz-vn15WxHajByHaaZdRlA2etplVxQk6vU_QFjrmrA8sp9bPrp0GOZQKkz_b2qI9gTUUk9CwGzNH3ZFQyQsMF78WAT-01MCuggk4VpFQSycto-6mSFOC1ut1D0ehlIkJvRQwTay1BLxG_BpO0sRaBuNczbmccYvPACbqJ0c81ikw3Q9Nxl8mCZ5FE2mcYI2fsxA6nj766iUM-6RsnDOMhPqKdFfRAGmNLNIO9DmYPRBanpdB0OMzF7fsuMKZjpuxAy7CmWOOtt4asDMDpdHBPaySNFnN_5ZPt1SHsLNeKi1aVwTphrtZvKpoIX1Wq4Mh1R2zR3yUXQVJtMGvUnVWQk4woCDLdg_A-RCA-fV2ZMdfq_wHoE4AkA'
+spotify_access_token = os.environ.get('SPOTIFY_ACCESS_TOKEN')  # set this in your shell, never in the code
 sp = spotipy.Spotify(auth=spotify_access_token)
 sp.max_retries = 10
 sp.backoff_factor = 0.4

@@ -1,3 +1,4 @@
+import os
 from IPython.display import Audio
 import pandas as pd
 import numpy as np
@@ -8,10 +9,8 @@ import time
 
 
 
-#spotify_cid = '9ab9dcbc306a43af8029c32ca95de9e9'
-#spotify_secret = '18962569c33c4039855a05a6a3c8b7ff'
 
-spotify_access_token ='BQDW71t88XYfwa5Lh3vLKlB8SsSk11t2XnHmxnTj8JRvdJTxFeM9lzvDVL7Yjgii9j7_A4Og0a0cRjUgfkMkaJwCFZk4pO8vaTc3ToQkKA9g2zSPyTPl3-hnOSE1kxCpMmhG2roQobaTZqDykuNzUU8N6g5EAm7NVyWlUhQapt0wIwxRwkb9FJHAX-0XgeZEtpCAsW6wuFjLdjjKYbJoFb_bDWzU4Y-sEk1aFsQKv1rI2_AtXCailOLBdMNOBVHq_npVP9ltsfXnxI7Jvv84m2fxlpKx3OpV2QOWxlbJEOG-YPHtFtqAO64nhJX2kQkra-Lxo1wo9gVE6oJ98Jq7pmDwg0LxYHTfRFYk6ooQdNSvkEZ6olJ_dH6R5I9-GQ'
+spotify_access_token = os.environ.get('SPOTIFY_ACCESS_TOKEN')  # set this in your shell, never in the code
 spotify = spotipy.Spotify(auth=spotify_access_token)
 spotify.max_retries = 10
 spotify.backoff_factor = 0.4
